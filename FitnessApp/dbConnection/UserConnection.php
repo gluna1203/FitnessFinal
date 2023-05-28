@@ -3,7 +3,7 @@ session_start();
 DEFINE("DB_USER", "root");
 DEFINE("DB_PSWD", "Neumont#23"); // Add password
 DEFINE("DB_SERVER", "localhost"); // Value might change depending on mysql install
-DEFINE("DB_NAME", "FitnessUsers"); // Might be diff on your pc
+DEFINE("DB_NAME", "fitnessusers"); // Might be diff on your pc
 
 function ConnGet() {
     $dbConn = @mysqli_connect(DB_SERVER, DB_USER, DB_PSWD, DB_NAME)
@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 if (isset($_POST['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
-	header("location: /MainPages/LoginPage.php");
+	header("location: LoginPage.php");
 }
 
 function register(){
@@ -39,13 +39,13 @@ function register(){
         //Used to make admin account
         if (isset($_POST['isAdmin'])) {
             $isAdmin = mysqli_real_escape_string(ConnGet(), trim(($_POST['isAdmin'])));
-            $query = "INSERT INTO FitnessUsers.users (username, email, password, isAdmin)
+            $query = "INSERT INTO fitnessusers.users (username, email, password, isAdmin)
 					  VALUES('$username', '$email', '$password', '$isAdmin')";
             mysqli_query(ConnGet(), $query);
-            header('location: /MainPages/Home.php');
+            header('location: Home.php');
         }else{
             //Used to make user Account
-            $query = "INSERT INTO FitnessUsers.users (username, email, password, isAdmin)
+            $query = "INSERT INTO fitnessusers.users (username, email, password, isAdmin)
 					  VALUES('$username', '$email', '$password', 'user')";
             mysqli_query(ConnGet(), $query);
 
@@ -53,7 +53,7 @@ function register(){
             $logged_in_user_id = mysqli_insert_id(ConnGet());
 
             $_SESSION['user'] = getUserById($logged_in_user_id); // create new session
-            header('location: /MainPages/LoginPage.php'); // Redirect after login
+            header('location: LoginPage.php'); // Redirect after login
         }
     }
 }
@@ -68,7 +68,7 @@ function login(){
     }else {
         $password = md5($password); // Decrypt
 
-        $query = "SELECT * FROM FitnessUsers.users WHERE username='$username' AND password='$password'";
+        $query = "SELECT * FROM fitnessusers.users WHERE username='$username' AND password='$password'";
         $results = mysqli_query(ConnGet(), $query);
 
         if (mysqli_num_rows($results) > 0){
@@ -76,10 +76,10 @@ function login(){
             $logged_in_user = mysqli_fetch_assoc($results);
             if ($logged_in_user['isAdmin'] == 'admin') {
                 $_SESSION['user'] = $logged_in_user;
-                header('location: /MainPages/Home.php');
+                header('location: Home.php');
             }else{
                 $_SESSION['user'] = $logged_in_user;
-                header('location: /MainPages/Home.php');
+                header('location: Home.php');
             }
         } else {
             echo "<script>alert('No Results found, Try Again');</script>";
@@ -89,7 +89,7 @@ function login(){
 }
 
 function getUserById($id){
-	$query = "SELECT * FROM FitnessUsers.users WHERE id=" . $id;
+	$query = "SELECT * FROM fitnessusers.users WHERE id=" . $id;
 	$result = mysqli_query(ConnGet(), $query);
 
 	return mysqli_fetch_assoc($result);
