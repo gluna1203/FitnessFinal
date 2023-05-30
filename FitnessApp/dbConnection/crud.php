@@ -102,7 +102,7 @@ function readAll() {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_array()) {
             // Display the array or perform any necessary operations
-            echo "Muscles ID: " . $row['musclesId'] .,  "Muscles ID: " . $row['musclesId'] . " ,Name: " . $row['name'] . ", Manufacturer: " . $row['manufacturer'] . ", Units Sold: " . $row['unitsSold'] . ", Release Year: " . $row['releaseYear'] . "<br>";
+            echo "Muscles ID: " . $row['musclesId'] .,  "Area ID: " . $row['areaId'] . " ,Name: " . $row['name'] . ", workout1: " . $row['workout1'] . ", workout2: " . $row['workout2'] . "<br>";
         }
     } else {
         echo "No records found";
