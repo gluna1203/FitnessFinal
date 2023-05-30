@@ -42,24 +42,9 @@ if (isset($_POST['delete'])) {
 }
 
 */
-if (isset($_POST['readById'])) {
-    $val = $_POST['conId'];
-    $record = getRecordById($val);
-    if ($record) {
-        $conId = $record['conId'];
-        $name = $record['name'];
-        $manufacturer = $record['manufacturer'];
-        $unitsSold = $record['unitsSold'];
-        $releaseYear = $record['releaseYear'];
-        $alertMessage = "conId: $conId, name: $name, manufacturer: $manufacturer, unitsSold: $unitsSold, releaseYear: $releaseYear";
-        echo "<p style='text-align: center;'>$alertMessage</p>";
-    } else {
-        echo "<script>alert('Record not found');</script>";
-    }
-}
 
 if (isset($_POST['readAll'])) {
-    $sql = "SELECT * FROM consoles.consoles";
+    $sql = "SELECT * FROM muscledb.muscles";
     $result = ConnGetB()->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
