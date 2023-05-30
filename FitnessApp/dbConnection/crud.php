@@ -63,12 +63,12 @@ if (isset($_POST['readAll'])) {
     $result = ConnGetB()->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $conId = $row['conId'];
-            $name = $row['name'];
-            $manufacturer = $row['manufacturer'];
-            $unitsSold = $row['unitsSold'];
-            $releaseYear = $row['releaseYear'];
-            $alertMessage = "conId: $conId, name: $name, manufacturer: $manufacturer, unitsSold: $unitsSold, releaseYear: $releaseYear";
+        $muscleId = $record['muscleId'];
+        $areaId = $record['areaId'];
+        $name = $record['name'];
+        $workout1 = $record['workout1'];
+        $workout2 = $record['workout2'];
+            $alertMessage = "muscleId: $muscleId, areaId: $areaId ,name: $name, workout1: $workout1, workout2: $workout2";
             echo "<p style='text-align: center;'>$alertMessage</p><br>";
         }
     }else {
