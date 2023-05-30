@@ -9,4 +9,22 @@ function ConnGetB() {
         or die("Failed to connect to the db " . DB_SERVER . '::' . DB_NAME . " : " . mysqli_connect_error());
     return $dbConn;
 }
+
+function getOneMuscleArea($areaId){
+
+}
+
+function getAllMuscleAreas(){
+
+}
+
+function getAllMuscles(){
+    
+}
+
+function getOneMuscle($muscleId){
+    
+}
+
+
 ?>
