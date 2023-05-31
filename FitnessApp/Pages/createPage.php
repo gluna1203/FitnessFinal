@@ -56,5 +56,5 @@ if (!isAdmin()) {
 </div>
 
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/MainPages/Footer.php');
+include_once "Footer.php";
 ?>
