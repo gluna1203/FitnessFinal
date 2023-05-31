@@ -19,6 +19,18 @@ if (!isAdmin()) {
             </div>
             <br />
             <div class="user-values">
+                <label for="AreaValues">Choose Muscle Area:</label>
+                <select name="AreaValues">
+                    <option value="1">Core</option>
+                    <option value="2">Pectorals</option>
+                    <option value="3">Shoulders</option>
+                    <option value="4">Back</option>
+                    <option value="5">Legs</option>
+                    <option value="6">Arms</option>
+                </select>
+            </div>
+            <br/>
+            <div class="user-values">
                 <label>Name:</label>
                 <input type="text" name="name" />
             </div>

@@ -12,7 +12,7 @@ if (!isAdmin()) {
     <div id="leftSide"></div>
     <div id="centerSide">
         <h2>Admin Delete</h2>
-        <form method="post" action="/deletePage.php">
+        <form method="post" action="/Pages/deletePage.php">
             <div class="user-values">
                 <label>Muscle ID:</label>
                 <input type="text" name="muscleId" />

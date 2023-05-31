@@ -87,7 +87,7 @@ if (isset($_POST['areaId'])) {
 }
 
 if (isset($_POST['create'])) {
-    $areaId = $_POST['areaId'];
+    $areaId = $_POST['AreaValues'];
     $name = $_POST['name'];
     $workout1 = $_POST['workout1'];
     $workout2 = $_POST['workout2'];
@@ -98,7 +98,7 @@ if (isset($_POST['create'])) {
 
 if (isset($_POST['update'])) {
     $muscleId = $_POST['muscleId'];
-    $areaId = $_POST['areaId'];
+    $areaId = $_POST['AreaValues'];
     $name = $_POST['name'];
     $workout1 = $_POST['workout1'];
     $workout2 = $_POST['workout2'];
