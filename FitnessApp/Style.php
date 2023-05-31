@@ -206,11 +206,34 @@ input {
 footer{}
 
 body{
-    background:linear-gradient(90deg, black, grey);
+    /*background:linear-gradient(90deg, black, grey);*/
+    background: var(--main-gradientt);
     /*background: #444;*/
     /*background-image:  url('pictures/logo.png');*/
     color: var(--main-color);
     border-radius: 5px solid var(--tertiary-color);
+}
+
+:root {
+    --color1: #3f3f3f;
+    --color2: #2e2e2e;
+    --color3: #171717;
+    --main-gradientt: linear-gradient(-45deg, var(--color1), var(--color2), var(--color3));
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 </style>
