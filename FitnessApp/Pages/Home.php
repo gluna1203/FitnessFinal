@@ -29,7 +29,8 @@ $(document).ready(function() {
     event.preventDefault();
 
     // Get the selected areaId
-    var areaId = $(this).find('button[name="areaId"]:focus').val();
+      var areaId = $(this).find('button[name="areaId"]:focus').val();
+    $('#muscleTable tbody').empty()
 
     // Make an AJAX request to retrieve the muscle information
     $.ajax({
@@ -50,7 +51,7 @@ $(document).ready(function() {
           "<td align='center'>" + muscle.name + "</td>" +
           "<td align='center'>" + muscle.workout1+ "</td>" +
               "<td align='center'>" + muscle.workout2 + "</td>" +
-              '<td align="center"><a href='+muscle.videoLink+' target="_blank">Video</a></td>' +
+              '<td align="center"><a href='+ muscle.videoLink +' target="_blank">Video</a></td>' +
                   "</tr>";
               $("#muscleTable tbody").append(tr_str);
           }

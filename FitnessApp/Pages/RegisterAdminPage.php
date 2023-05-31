@@ -2,9 +2,9 @@
 include_once "Header.php";
 include_once($_SERVER['DOCUMENT_ROOT'].'/dbConnection/UserConnection.php');
 
-//if (!isAdmin()) {
-//	header('location: /Pages/LoginPage.php');
-//}
+if (!isAdmin()) {
+	header('location: /Pages/LoginPage.php');
+}
 ?>
 
 

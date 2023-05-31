@@ -86,6 +86,30 @@ if (isset($_POST['areaId'])) {
     exit;
 }
 
+if (isset($_POST['create'])) {
+    $name = $_POST['name'];
+    $workout1 = $_POST['workout1'];
+    $workout2 = $_POST['workout2'];
+    $videoLink = $_POST['videoLink'];
+    echo "<script>alert('name: $name, workout1: $workout1, workout2: $workout2, videoLink: $videoLink');</script>";
+    createMuscle($name,$workout1,$workout2,$videoLink,$connection);
+}
+
+if (isset($_POST['update'])) {
+    $muscleId = $_POST['muscleId'];
+    $name = $_POST['name'];
+    $workout1 = $_POST['workout1'];
+    $workout2 = $_POST['workout2'];
+    $videoLink = $_POST['videoLink'];
+
+    echo "<script>alert('muscleId: $muscleId, name: $name, workout1: $workout1, workout2: $workout2, videoLink: $videoLink');</script>";
+    updateMuscle($muscleId,$name,$workout1,$workout2,$videoLink,$connection);
+}
+
+if (isset($_POST['delete'])) {
+    deleteMuscle($_POST['muscleId'], $connection);
+}
+
  // Function to create a new muscle
 function createMuscle($name, $workout1, $workout2, $videoLink, $connection) {
     $query = "INSERT INTO muscledb.muscles (name, workout1, workout2, videoLink) VALUES ('$name', '$workout1', '$workout2', '$videoLink')";
