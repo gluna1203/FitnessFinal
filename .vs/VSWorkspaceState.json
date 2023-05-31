@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FitnessApp"
+    "\\FitnessApp",
+    "\\FitnessApp\\dbConnection"
   ],
+  "SelectedNode": "\\FitnessApp\\dbConnection\\crud.php",
   "PreviewInSolutionExplorer": false
 }
