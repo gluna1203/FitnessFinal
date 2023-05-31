@@ -68,14 +68,14 @@ h2 {
 }
 
 .navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: red;
+  background-color: #b7a261;
 }
 
 .subnav-content {
   display: none;
   position: absolute;
   left: 0;
-  background-color: red;
+  background-color: #b7a261;
   width: 100%;
   z-index: 1;
 }
@@ -161,7 +161,8 @@ input {
 :root {
     /* font-family: monospace; */
     font-family: 'Roboto Slab', serif;
-    --main-color: #333;
+    --main-color: #b7a261;
+    /*--main-color: #333;*/
     --highlight-color: #ffb7ff;
     --tertiary-color: #889;
     --color1: #b7a261;
@@ -206,6 +207,7 @@ footer{}
 
 body{
     background: #444;
+    /*background-image:  url('pictures/logo.png');*/
     color: var(--main-color);
     border-radius: 5px solid var(--tertiary-color);
 }

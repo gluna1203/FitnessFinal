@@ -9,7 +9,6 @@ include_once($_SERVER['DOCUMENT_ROOT']."/Utility.php");
 //    header('location: /Pages/LoginPage.php');
 //}
 
-$array = array();
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -51,18 +50,10 @@ $(document).ready(function() {
           "<td align='center'>" + muscle.name + "</td>" +
           "<td align='center'>" + muscle.workout1+ "</td>" +
               "<td align='center'>" + muscle.workout2 + "</td>" +
-              '<td align="center"><a href='+muscle.videoLink+'>Video</a></td>' +
+              '<td align="center"><a href='+muscle.videoLink+' target="_blank">Video</a></td>' +
                   "</tr>";
               $("#muscleTable tbody").append(tr_str);
-//          message += 'Muscle ID: ' + muscle.muscleId + '\n';
-//          message += 'Name: ' + muscle.name + '\n';
-//          message += 'Workout 1: ' + muscle.workout1 + '\n';
-//          message += 'Workout 2: ' + muscle.workout2 + '\n';
-//          message += 'Video Link: ' + muscle.videoLink + '\n\n';
           }
-
-
-          //alert(message);
       },
       error: function(xhr, status, error) {
         console.log(error);
