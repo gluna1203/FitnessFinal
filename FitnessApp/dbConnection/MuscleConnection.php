@@ -63,4 +63,37 @@ if (isset($_POST['areaId'])) {
     // Exit the script
     exit;
 }
+
+ // Function to create a new muscle
+function createMuscle($name, $workout1, $workout2, $videoLink, $connection) {
+    $query = "INSERT INTO muscles (name, workout1, workout2, videoLink) VALUES ('$name', '$workout1', '$workout2', '$videoLink')";
+    $result = mysqli_query($connection, $query);
+    if ($result) {
+        return mysqli_insert_id($connection); // Return the newly created muscleId
+    } else {
+        return false; // Failed to create muscle
+    }
+}
+
+// Function to delete a muscle
+function deleteMuscle($muscleId, $connection) {
+    $query = "DELETE FROM muscles WHERE muscleId = $muscleId";
+    $result = mysqli_query($connection, $query);
+    if ($result && mysqli_affected_rows($connection) > 0) {
+        return true; // Muscle deleted successfully
+    } else {
+        return false; // Failed to delete muscle or muscleId not found
+    }
+}
+
+// Function to update a muscle
+function updateMuscle($muscleId, $name, $workout1, $workout2, $videoLink, $connection) {
+    $query = "UPDATE muscles SET name = '$name', workout1 = '$workout1', workout2 = '$workout2', videoLink = '$videoLink' WHERE muscleId = $muscleId";
+    $result = mysqli_query($connection, $query);
+    if ($result && mysqli_affected_rows($connection) > 0) {
+        return true; // Muscle updated successfully
+    } else {
+        return false; // Failed to update muscle or muscleId not found
+    }
+}
 ?>

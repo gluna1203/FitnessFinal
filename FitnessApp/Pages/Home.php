@@ -7,7 +7,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/Utility.php");
 //if (!logged()) {
 //	header('location: /Pages/LoginPage.php');
 //}
-
+readAll();
 ?>
 
 
