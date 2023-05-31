@@ -62,9 +62,9 @@ $(document).ready(function() {
     var listHtml = '';
 
     for (var i = 0; i < muscleList.length; i++) {
-      var muscleId = muscleList[i];
+      var muscle = muscleList[i];
 
-      listHtml += '<li>' + muscleId + '</li>';
+      listHtml += '<li>Muscle ID: ' + muscle.muscleId + ', Name: ' + muscle.name + ', Workout1: ' + muscle.workout1 + ', Workout2: ' + muscle.workout2 + '</li>';
     }
 
     $('#muscleList').html(listHtml);
@@ -110,25 +110,41 @@ $(document).ready(function() {
 
     if (muscleId !== '') {
       var isValidMuscleId = false;
+      var muscleName = '';
+      var tableWorkout1 = '';
+      var tableWorkout2 = '';
 
       $('#muscleTable tbody tr').each(function() {
         var tableMuscleId = $(this).find('td:eq(0)').text();
+        var tableMuscleName = $(this).find('td:eq(1)').text();
+        tableWorkout1 = $(this).find('td:eq(2)').text();
+        tableWorkout2 = $(this).find('td:eq(3)').text();
 
         if (tableMuscleId === muscleId) {
           isValidMuscleId = true;
+          muscleName = tableMuscleName;
           return false; // Break the loop
         }
       });
 
       if (isValidMuscleId) {
-        if (muscleList.includes(muscleId)) {
+        if (muscleList.some(function(muscle) {
+          return muscle.muscleId === muscleId;
+        })) {
           alert('Muscle ID already added to the workout list.');
         } else {
           if (muscleList.length >= 5) {
             muscleList.shift();
           }
 
-          muscleList.push(muscleId);
+          var muscle = {
+            muscleId: muscleId,
+            name: muscleName,
+            workout1: tableWorkout1,
+            workout2: tableWorkout2
+          };
+
+          muscleList.push(muscle);
 
           updateMuscleList();
           $('#muscleIdInput').val('');
@@ -141,9 +157,22 @@ $(document).ready(function() {
     }
   });
 
+
   $('#addWorkoutBtn').click(function() {
-    // Add your code for the "Add Workout" button functionality here
-    // This code will execute when the button is clicked
+    var workoutList = JSON.stringify(muscleList);
+
+    $.ajax({
+      url: '/Utility.php',
+      type: 'POST',
+      data: { workoutList: workoutList },
+      success: function(response) {
+        alert('Workout has been saved.');
+      },
+      error: function(xhr, status, error) {
+        console.log(error);
+        alert('An error occurred while saving the workout.');
+      }
+    });
   });
 });
 </script>
