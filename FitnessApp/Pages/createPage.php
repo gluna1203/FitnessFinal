@@ -15,28 +15,23 @@ if (!isAdmin()) {
         <h2>Admin Create</h2>
         <form method="post" action="createPage.php">
             <div class="user-values">
-                <label>ID:</label>
-                <input type="text" name="conId" />
-            </div>
-            <br />
-            <div class="user-values">
                 <label>Name:</label>
                 <input type="text" name="name" />
             </div>
             <br />
             <div class="user-values">
-                <label>Manufacturer:</label>
-                <input type="text" name="manufacturer" />
+                <label>Workout1:</label>
+                <input type="text" name="workout1" />
             </div>
             <br />
             <div class="user-values">
-                <label>Units Sold:</label>
-                <input type="text" name="unitsSold" />
+                <label>Workout2:</label>
+                <input type="text" name="workout2" />
             </div>
             <br />
             <div class="user-values">
-                <label>Release Year:</label>
-                <input type="text" name="releaseYear" />
+                <label>Video Link:</label>
+                <input type="text" name="videoLink" />
             </div>
             <br />
             <div class="user-values">

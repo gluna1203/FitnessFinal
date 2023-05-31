@@ -14,8 +14,8 @@ if (!isAdmin()) {
         <h2>Admin Edit</h2>
         <form method="post" action="editPage.php">
             <div class="user-values">
-                <label>ID:</label>
-                <input type="text" name="conId" />
+                <label>Muscle ID:</label>
+                <input type="text" name="muscleId" />
             </div>
             <br />
             <div class="user-values">
@@ -24,18 +24,18 @@ if (!isAdmin()) {
             </div>
             <br />
             <div class="user-values">
-                <label>Manufacturer:</label>
-                <input type="text" name="manufacturer" />
+                <label>Workout1:</label>
+                <input type="text" name="workout1" />
             </div>
             <br />
             <div class="user-values">
-                <label>Units Sold:</label>
-                <input type="text" name="unitsSold" />
+                <label>workout2:</label>
+                <input type="text" name="workout2" />
             </div>
             <br />
             <div class="user-values">
-                <label>Release Year:</label>
-                <input type="text" name="releaseYear" />
+                <label>Video Link:</label>
+                <input type="text" name="videoLink" />
             </div>
             <br />
             <div class="user-values">

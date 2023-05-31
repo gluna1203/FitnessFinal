@@ -14,8 +14,8 @@ if (!isAdmin()) {
         <h2>Admin Delete</h2>
         <form method="post" action="/deletePage.php">
             <div class="user-values">
-                <label>ID:</label>
-                <input type="text" name="conId" />
+                <label>Muscle ID:</label>
+                <input type="text" name="muscleId" />
             </div>
             <br />
             <div class="user-values">

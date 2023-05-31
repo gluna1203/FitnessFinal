@@ -107,7 +107,8 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['delete'])) {
-    deleteMuscle($_POST['muscleId'], $connection);
+    $val = $_POST['muscleId'];
+    deleteMuscle($val, $connection);
 }
 
  // Function to create a new muscle
