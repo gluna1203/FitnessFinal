@@ -87,23 +87,25 @@ if (isset($_POST['areaId'])) {
 }
 
 if (isset($_POST['create'])) {
+    $areaId = $_POST['areaId'];
     $name = $_POST['name'];
     $workout1 = $_POST['workout1'];
     $workout2 = $_POST['workout2'];
     $videoLink = $_POST['videoLink'];
-    echo "<script>alert('name: $name, workout1: $workout1, workout2: $workout2, videoLink: $videoLink');</script>";
-    createMuscle($name,$workout1,$workout2,$videoLink,$connection);
+    echo "<script>alert('areaId: $areaId, name: $name, workout1: $workout1, workout2: $workout2, videoLink: $videoLink');</script>";
+    createMuscle($areaId,$name,$workout1,$workout2,$videoLink,$connection);
 }
 
 if (isset($_POST['update'])) {
     $muscleId = $_POST['muscleId'];
+    $areaId = $_POST['areaId'];
     $name = $_POST['name'];
     $workout1 = $_POST['workout1'];
     $workout2 = $_POST['workout2'];
     $videoLink = $_POST['videoLink'];
 
-    echo "<script>alert('muscleId: $muscleId, name: $name, workout1: $workout1, workout2: $workout2, videoLink: $videoLink');</script>";
-    updateMuscle($muscleId,$name,$workout1,$workout2,$videoLink,$connection);
+    echo "<script>alert('muscleId: $muscleId, areaId: $areaId, name: $name, workout1: $workout1, workout2: $workout2, videoLink: $videoLink');</script>";
+    updateMuscle($muscleId,$areaId,$name,$workout1,$workout2,$videoLink,$connection);
 }
 
 if (isset($_POST['delete'])) {
@@ -112,8 +114,8 @@ if (isset($_POST['delete'])) {
 }
 
  // Function to create a new muscle
-function createMuscle($name, $workout1, $workout2, $videoLink, $connection) {
-    $query = "INSERT INTO muscledb.muscles (name, workout1, workout2, videoLink) VALUES ('$name', '$workout1', '$workout2', '$videoLink')";
+function createMuscle($areaId ,$name, $workout1, $workout2, $videoLink, $connection) {
+    $query = "INSERT INTO muscledb.muscles (areaId ,name, workout1, workout2, videoLink) VALUES ('$areaId' ,'$name', '$workout1', '$workout2', '$videoLink')";
     $result = mysqli_query($connection, $query);
     if ($result) {
         return mysqli_insert_id($connection); // Return the newly created muscleId
@@ -134,8 +136,8 @@ function deleteMuscle($muscleId, $connection) {
 }
 
 // Function to update a muscle
-function updateMuscle($muscleId, $name, $workout1, $workout2, $videoLink, $connection) {
-    $query = "UPDATE muscledb.muscles SET name = '$name', workout1 = '$workout1', workout2 = '$workout2', videoLink = '$videoLink' WHERE muscleId = $muscleId";
+function updateMuscle($muscleId, $areaId,$name, $workout1, $workout2, $videoLink, $connection) {
+    $query = "UPDATE muscledb.muscles SET areaId = '$areaId',name = '$name', workout1 = '$workout1', workout2 = '$workout2', videoLink = '$videoLink' WHERE muscleId = $muscleId";
     $result = mysqli_query($connection, $query);
     if ($result && mysqli_affected_rows($connection) > 0) {
         return true; // Muscle updated successfully
