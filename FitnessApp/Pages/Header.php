@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/style.php">   
 </head>
 <body>
-    <img src="/pictures/logo.png" alt="logo" class="center"/>
+    <img src="/pictures/logo.png" alt="logo" class="center" width="30%"/>
     <br />
     <nav>
         <ul id="navigation">

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{13B669BE-BB05-4DDF-9536-439F39A36129}") = "FitnessApp", "FitnessApp.phpproj", "{8F43B9C8-B3F7-44FC-B763-D81305BDB86B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F43B9C8-B3F7-44FC-B763-D81305BDB86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F43B9C8-B3F7-44FC-B763-D81305BDB86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F43B9C8-B3F7-44FC-B763-D81305BDB86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F43B9C8-B3F7-44FC-B763-D81305BDB86B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56101122-66D6-4026-A462-3DB29B5AF1C5}
+	EndGlobalSection
+EndGlobal
