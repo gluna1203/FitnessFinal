@@ -7,4 +7,9 @@ function saveToText($array){
     fclose($file);
     return "File Saved";
 }
+
+function displayText(){
+    $my_arr = json_decode(file_get_contents('..\\workoutlist.txt'), true);
+    return $my_arr;
+}
 ?>

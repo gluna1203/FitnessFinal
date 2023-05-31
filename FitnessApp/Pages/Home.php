@@ -8,6 +8,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/Utility.php");
 //    header('location: /Pages/LoginPage.php');
 //}
 
+
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
