@@ -9,7 +9,9 @@ $border = '1px solid';
 
 <style type="text/css">
 
-html{}
+html{
+  background:linear-gradient(90deg, black, grey);
+}
 
 
 
