@@ -10,7 +10,7 @@ $border = '1px solid';
 <style type="text/css">
 
 html{
-  background:linear-gradient(90deg, black, grey);
+  
 }
 
 
@@ -206,7 +206,8 @@ input {
 footer{}
 
 body{
-    background: #444;
+    background:linear-gradient(90deg, black, grey);
+    /*background: #444;*/
     /*background-image:  url('pictures/logo.png');*/
     color: var(--main-color);
     border-radius: 5px solid var(--tertiary-color);
