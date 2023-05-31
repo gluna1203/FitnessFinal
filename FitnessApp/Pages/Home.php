@@ -8,6 +8,8 @@ include_once($_SERVER['DOCUMENT_ROOT']."/Utility.php");
 //if (!logged()) {
 //    header('location: /Pages/LoginPage.php');
 //}
+
+$array = array();
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -20,6 +22,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/Utility.php");
     <button name="areaId" value="5">Legs</button>
     <button name="areaId" value="6">Arms</button>
 </form>
+
 
 <script>
 $(document).ready(function() {
@@ -39,17 +42,27 @@ $(document).ready(function() {
         // Display the muscle information in an alert
         var message = '';
 
-        for (var i = 0; i < response.length; i++) {
+          for (var i = 0; i < response.length; i++) {
           var muscle = response[i];
 
-          message += 'Muscle ID: ' + muscle.muscleId + '\n';
-          message += 'Name: ' + muscle.name + '\n';
-          message += 'Workout 1: ' + muscle.workout1 + '\n';
-          message += 'Workout 2: ' + muscle.workout2 + '\n';
-          message += 'Video Link: ' + muscle.videoLink + '\n\n';
-        }
 
-        alert(message);
+          var tr_str = "<tr>" +
+          "<td align='center'>" + muscle.muscleId + "</td>" +
+          "<td align='center'>" + muscle.name + "</td>" +
+          "<td align='center'>" + muscle.workout1+ "</td>" +
+              "<td align='center'>" + muscle.workout2 + "</td>" +
+              '<td align="center"><a href='+muscle.videoLink+'>Video</a></td>' +
+                  "</tr>";
+              $("#muscleTable tbody").append(tr_str);
+//          message += 'Muscle ID: ' + muscle.muscleId + '\n';
+//          message += 'Name: ' + muscle.name + '\n';
+//          message += 'Workout 1: ' + muscle.workout1 + '\n';
+//          message += 'Workout 2: ' + muscle.workout2 + '\n';
+//          message += 'Video Link: ' + muscle.videoLink + '\n\n';
+          }
+
+
+          //alert(message);
       },
       error: function(xhr, status, error) {
         console.log(error);
@@ -59,6 +72,21 @@ $(document).ready(function() {
   });
 });
 </script>
+
+<div class="container">
+    <table id="muscleTable" border="1">
+        <thead>
+            <tr>
+                <th width="5%">MuscleId</th>
+                <th width="20%">Name</th>
+                <th width="20%">Workout1</th>
+                <th width="20%">Workout2</th>
+                <th width="20%">VideoLink</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
 
 <form method="post" action="Home.php">
     <div class="user-values">

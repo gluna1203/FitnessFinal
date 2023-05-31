@@ -18,7 +18,7 @@ $connection = ConnGetB();
 // Function to display muscles for a specific areaId
 function displayMusclesForArea($areaId, $connection) {
     // Fetch muscles for the given areaId from the database
-    $query = "SELECT * FROM muscles WHERE areaId = $areaId";
+    $query = "SELECT * FROM muscledb.muscles WHERE areaId = $areaId";
     $result = mysqli_query($connection, $query);
 
     // Store the muscle information in an array
@@ -37,6 +37,28 @@ function displayMusclesForArea($areaId, $connection) {
             'workout1' => $workout1,
             'workout2' => $workout2,
             'videoLink' => $videoLink
+        );
+    }
+
+    return $muscles;
+}
+
+function displayAreaForMuscles($areaId, $connection) {
+    // Fetch muscles for the given areaId from the database
+    $query = "SELECT * FROM muscledb.bodyarea WHERE areaId = $areaId";
+    $result = mysqli_query($connection, $query);
+
+    // Store the muscle information in an array
+    $muscles = array();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $muscleId = $row['areaId'];
+        $name = $row['name'];
+
+
+        $muscles[] = array(
+            'muscleId' => $muscleId,
+            'name' => $name
         );
     }
 
@@ -66,7 +88,7 @@ if (isset($_POST['areaId'])) {
 
  // Function to create a new muscle
 function createMuscle($name, $workout1, $workout2, $videoLink, $connection) {
-    $query = "INSERT INTO muscles (name, workout1, workout2, videoLink) VALUES ('$name', '$workout1', '$workout2', '$videoLink')";
+    $query = "INSERT INTO muscledb.muscles (name, workout1, workout2, videoLink) VALUES ('$name', '$workout1', '$workout2', '$videoLink')";
     $result = mysqli_query($connection, $query);
     if ($result) {
         return mysqli_insert_id($connection); // Return the newly created muscleId
@@ -77,7 +99,7 @@ function createMuscle($name, $workout1, $workout2, $videoLink, $connection) {
 
 // Function to delete a muscle
 function deleteMuscle($muscleId, $connection) {
-    $query = "DELETE FROM muscles WHERE muscleId = $muscleId";
+    $query = "DELETE FROM muscledb.muscles WHERE muscleId = $muscleId";
     $result = mysqli_query($connection, $query);
     if ($result && mysqli_affected_rows($connection) > 0) {
         return true; // Muscle deleted successfully
@@ -88,7 +110,7 @@ function deleteMuscle($muscleId, $connection) {
 
 // Function to update a muscle
 function updateMuscle($muscleId, $name, $workout1, $workout2, $videoLink, $connection) {
-    $query = "UPDATE muscles SET name = '$name', workout1 = '$workout1', workout2 = '$workout2', videoLink = '$videoLink' WHERE muscleId = $muscleId";
+    $query = "UPDATE muscledb.muscles SET name = '$name', workout1 = '$workout1', workout2 = '$workout2', videoLink = '$videoLink' WHERE muscleId = $muscleId";
     $result = mysqli_query($connection, $query);
     if ($result && mysqli_affected_rows($connection) > 0) {
         return true; // Muscle updated successfully

@@ -1,6 +1,5 @@
 <?php
 
-$user = $_SERVER['AUTH_USER'];
 function saveToText($array){
     $json = json_encode($array);
     $file = fopen("..\\workoutlist.txt", 'w');
