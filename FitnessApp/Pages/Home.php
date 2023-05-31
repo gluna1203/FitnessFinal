@@ -1,19 +1,64 @@
+
 <?php
 include_once "Header.php";
-include_once($_SERVER['DOCUMENT_ROOT'].'/dbConnection/UserConnection.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/dbConnection/crud.php');
+include_once($_SERVER['DOCUMENT_ROOT']."/dbConnection/UserConnection.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/dbConnection/MuscleConnection.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/Utility.php");
 
 //if (!logged()) {
-//	header('location: /Pages/LoginPage.php');
+//    header('location: /Pages/LoginPage.php');
 //}
-readAll();
 ?>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<form id="muscleForm" method="post">
+    <button name="areaId" value="1">Core</button>
+    <button name="areaId" value="2">Pectorals</button>
+    <button name="areaId" value="3">Shoulders</button>
+    <button name="areaId" value="4">Back</button>
+    <button name="areaId" value="5">Legs</button>
+    <button name="areaId" value="6">Arms</button>
+</form>
 
+<script>
+$(document).ready(function() {
+  $('#muscleForm').submit(function(event) {
+    event.preventDefault();
 
+    // Get the selected areaId
+    var areaId = $(this).find('button[name="areaId"]:focus').val();
 
+    // Make an AJAX request to retrieve the muscle information
+    $.ajax({
+      url: '/dbConnection/MuscleConnection.php',
+      type: 'POST',
+      data: { areaId: areaId },
+      dataType: 'json',
+      success: function(response) {
+        // Display the muscle information in an alert
+        var message = '';
+
+        for (var i = 0; i < response.length; i++) {
+          var muscle = response[i];
+
+          message += 'Muscle ID: ' + muscle.muscleId + '\n';
+          message += 'Name: ' + muscle.name + '\n';
+          message += 'Workout 1: ' + muscle.workout1 + '\n';
+          message += 'Workout 2: ' + muscle.workout2 + '\n';
+          message += 'Video Link: ' + muscle.videoLink + '\n\n';
+        }
+
+        alert(message);
+      },
+      error: function(xhr, status, error) {
+        console.log(error);
+        alert('An error occurred while retrieving muscle information.');
+      }
+    });
+  });
+});
+</script>
 
 <form method="post" action="Home.php">
     <div class="user-values">
