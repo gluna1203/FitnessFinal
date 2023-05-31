@@ -20,8 +20,8 @@
                 <a href="/Pages/RegisterPage.php">Register Page</a>
                 <a href="/Pages/RegisterAdminPage.php">Register Admin Page</a>
                 <a href="/Pages/createPage.php">Admin Create Muscle</a>
-                <a href="/Pages/deletePage.php">Admin Delete Muscle</a>
                 <a href="/Pages/editPage.php">Admin Edit Muscle</a>
+                <a href="/Pages/deletePage.php">Admin Delete Muscle</a>
             </div>
         </ul>
 
